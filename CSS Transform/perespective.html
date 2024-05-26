@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perespective Property</title>
+    <style>
+        .container{
+            width:300px;
+            aspect-ratio: 1;
+            background-color: gainsboro;
+            margin: 150px auto;
+            perspective: 500px;
+            /* perspective-origin: left top; */
+            /* perspective-origin: right top; */
+            /* perspective-origin: left bottom; */
+            /* perspective-origin: right bottom; */
+            perspective-origin: 20% 20%;
+            & .child{
+                background-color: coral;
+                text-align: center;
+                line-height: 300px;
+                transform: rotateY(30deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="child">
+            Transform
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,301 @@
+
+/*? Grid Item Position */
+
+.grid-container{
+    width:80%;
+    background-color: wheat;
+    margin:100px auto;
+    box-shadow: 1px 2px 10px #0f0f0f;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(2,100px);
+    gap:20px;
+    & .item{
+        background-color:lightcoral;
+        color:white;
+        padding:10px;
+        font-size:x-large
+      
+      }
+    & .item-1{
+        background-color: coral;
+        /* grid-row-start: 2;
+        grid-row-end: 3; */
+        grid-row: 2/3;
+        /* grid-column-start: 3;
+        grid-column-end: 4; */
+        grid-column: 3/4;
+    }
+    & .item-2{
+        background-color: darkolivegreen;
+    }
+    & .item-3{
+      background-color: darkgoldenrod;
+    }
+    & .item-4{
+      background-color: darkcyan;
+    }
+    & .item-5{
+      background-color: goldenrod;
+    }
+    & .item-6{
+      background-color: limegreen;
+      /* grid-column: 1/2;
+      grid-row: 1/2; */
+      /* Syntax: grid-area: rowStart/colStart/rowEnd/ColEnd */
+      grid-area: 1/1/2/2;
+    }
+}
+
+ /*? grid Spanning  */
+.grid-container2{
+        width:80%;
+        background-color: wheat;
+        margin:30px auto;
+        box-shadow: 1px 2px 10px #0f0f0f;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(4,100px);
+        gap:10px;
+        & .item{
+            background-color:lightcoral;
+            color:white;
+            padding:10px;
+            font-size:x-large
+          
+          }
+        & .itemTwo-1{
+            background-color: coral;
+            /* grid-column: 1/-1 */
+            /* grid-column: 1/4; */
+            grid-column: 1 / span 3
+        }
+        & .itemTwo-2{
+            background-color: darkolivegreen;
+            grid-column: 1/ span 2
+        }
+        & .itemTwo-3{
+          background-color: darkgoldenrod;
+          grid-column: 3/4;
+          grid-row: 2/ span 3
+        }
+        & .itemTwo-4{
+          background-color: darkcyan;
+        }
+        & .itemTwo-5{
+          background-color: goldenrod;
+        }
+        & .itemTwo-6{
+          background-color: limegreen;
+         /* grid-area: 1/2/2/3; */
+
+        }
+        & .itemTwo-7{
+          background-color: crimson;
+        }
+        & .itemTwo-8{
+          background-color: slateblue;
+         /* grid-area: 1/2/2/3; */
+         grid-column: 1 / span 3;
+        }
+    }
+
+.grid-container3{
+        width:80%;
+        background-color: wheat;
+        margin:30px auto;
+        box-shadow: 1px 2px 10px #0f0f0f;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(4,100px);
+        gap:10px;
+        & .item{
+            background-color:lightcoral;
+            color:white;
+            padding:10px;
+            font-size:x-large
+          
+          }
+        & .itemThree-1{
+            background-color: coral;
+            /* grid-column: 1/-1 */
+            /* grid-column: 1/4; */
+            grid-column: 1 / span 3
+        }
+        & .itemThree-2{
+            background-color: darkolivegreen;
+            grid-column: 2/ span 2
+        }
+        & .itemThree-3{
+          background-color: darkgoldenrod;
+          grid-column: 1/2;
+          grid-row: 2/ span 3
+        }
+        & .itemThree-4{
+          background-color: darkcyan;
+        }
+        & .itemThree-5{
+          background-color: goldenrod;
+        }
+        & .itemThree-6{
+          background-color: limegreen;
+
+        }
+        & .itemThree-7{
+          background-color: crimson;
+        }
+        & .itemThree-8{
+          background-color: slateblue;
+         /* grid-area: 1/2/2/3; */
+         grid-column: 1 / span 3;
+        }
+    }
+
+  /*? Grid Line Naming */
+.grid-container4{
+        width:80%;
+        background-color: wheat;
+        margin:30px auto;
+        box-shadow: 1px 2px 10px #0f0f0f;
+        display: grid;
+        grid-template-columns: repeat(3,[col-start] 1fr [col-end]);
+        grid-template-rows: [header-start]100px [header-end menu-start] 60px [menu-end box-start] 200px [box-end content-start] 300px [content-end footer-start] 60px [footer-end];
+        gap:10px;
+        & .item{
+            background-color:lightcoral;
+            color:white;
+            padding:10px;
+            font-size:x-large
+          
+          }
+        & .header{
+            background-color: coral;
+            grid-column: col-start 1 / col-end 3;
+            grid-row: header-start/ header-end;
+        }
+        & .menu{
+            background-color: darkolivegreen;
+            grid-column: col-start 1/ col-end 3;
+            grid-row: menu-start/ menu-end;
+        }
+        & .Box1{
+          background-color: darkgoldenrod;
+        }
+        & .Box2{
+          background-color: darkcyan;
+        }
+        & .sidebar{
+          background-color: goldenrod;
+          grid-row: box-start / content-end;
+        }
+        & .content{
+          background-color: limegreen;
+          grid-row: content-start/content-end;
+          grid-column: col-start 1 / col-end 2;
+
+        }
+        & .footer{
+          background-color: crimson;
+          grid-column: col-start 1/ -1;
+          grid-row: footer-start/ footer-end;
+        }
+    }
+
+  /*? Grid Area Naming */
+.grid-container5{
+        width:80%;
+        background-color: wheat;
+        margin:30px auto;
+        box-shadow: 1px 2px 10px #0f0f0f;
+        display: grid;
+        grid-template-columns: repeat(3,1fr );
+        grid-template-rows: 100px  60px  200px  300px 60px ;
+        grid-template-areas: 
+        "header header header"
+        "menu menu menu"
+        "box1 box2 sidebar"
+        "content content ."
+        "footer footer footer";
+        gap:10px;
+        & .item{
+            background-color:lightcoral;
+            color:white;
+            padding:10px;
+            font-size:x-large
+          
+          }
+        & #header{
+            background-color: coral;
+            grid-area: header;
+        }
+        & #menu{
+            background-color: darkolivegreen;
+            grid-area: menu;
+        }
+        & #Box1{
+          background-color: darkgoldenrod;
+          grid-area: box1;
+        }
+        & #Box2{
+          background-color: darkcyan;
+          grid-area: box2;
+        }
+        & #sidebar{
+          background-color: goldenrod;
+          grid-area: sidebar;
+        }
+        & #content{
+          background-color: limegreen;
+          grid-area: content;
+
+        }
+        & #footer{
+          background-color: crimson;
+          grid-area: footer;
+        }
+    }
+
+  /* order change */
+  /*? CSS Order Property এর মাধ্যমে আমরা HTML এ কোন Change ছাড়া Grid items এর Position Change করতে পারি খুব সহজেই। */
+  .grid-container6{
+    width:80%;
+    background-color: wheat;
+    margin:30px auto;
+    box-shadow: 1px 2px 10px #0f0f0f;
+    display: grid;
+    grid-template-columns: repeat(3,1fr );
+    grid-template-rows: repeat(2, 100px);
+    gap:10px;
+    & .item{
+        background-color:lightcoral;
+        color:white;
+        padding:10px;
+        font-size:x-large
+      
+      }
+    & #One{
+        background-color: coral;
+        order: 2
+    }
+    & #Two{
+        background-color: darkolivegreen;
+    }
+    & #Three{
+      background-color: darkgoldenrod;
+    }
+    & #Four{
+      background-color: darkcyan;
+      order: 1;
+    }
+    & #Five{
+      background-color: goldenrod;
+    }
+    & #Six{
+      background-color: limegreen;
+
+    }
+
+}
+  
+  
+  

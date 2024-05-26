@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animation Property</title>
+    <!--* CSS Animation Property এর মাধ্যমে আমরা Webpage এ Animation তৈরি করতে পারি। একটি Animation মুলত যেই কাজটা করে সেটা হচ্ছে, কোন একটা Element কে ধীরে ধীরে একটা Style থেকে অন্য Style এ পরিণত করে থাকে। CSS Animation তৈরি করার জন্য প্রথমে আমাদেরকে একটা keyframe নিদির্ষ্ট করতে হবে। Keyframe মুলত Element এর Style গুলো ধরে রাখে।   -->
+    <!--? CSS Animation Properties গুলো হচ্ছে
+        @keyframes
+        animation-name
+        animation-duration
+        animation-delay
+        animation-iteration-count
+        animation-direction
+        animation-timing-function
+        animation-fill-mode
+        animation
+    -->
+
+    <style>
+      .box {
+        width: 200px;
+        aspect-ratio: 1;
+        background-color: aquamarine;
+        margin: 100px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+        animation-name: openClose;
+        animation-duration: 3s;
+        /* animation-delay: 2s; */
+        /*? timing function */
+        /* animation-timing-function: ease; */
+        /* animation-timing-function: ease-in; */
+        /* animation-timing-function: ease-out; */
+        /* animation-timing-function: ease-in-out; */
+        /* animation-timing-function: linear; */
+        /* animation-timing-function: step-start; */
+        /* animation-timing-function: step-end; */
+        /* animation-timing-function: steps(2,start); */
+        /* animation-timing-function: steps(2,end); */
+        /* animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1); */
+
+
+        /*? iteration count  */
+        /* animation-iteration-count: 3; */
+        animation-iteration-count: infinite;
+        /*? animation direction value */
+        /* animation-direction: normal; */
+        /* animation-direction: reverse; */
+        animation-direction: alternate;
+        /* animation-direction: alternate-reverse; */
+      }
+
+      @keyframes openClose {
+        0% {
+          border-radius: 1%;
+        }
+        /* 50% {
+          border-radius: 20%;
+          background-color: gold;
+          color: white;
+        } */
+        100% {
+          border-radius: 50%;
+          background-color: tomato;
+          color: white;
+        }
+      }
+
+      .box2{
+        height:50px;
+        aspect-ratio: 1;
+        background-color: blue;
+        /* border-radius: 10%; */
+        animation: example 3s alternate linear infinite;
+        /* animation-fill-mode: forwards; */
+        /* animation-fill-mode: backwards; */
+        /* animation-fill-mode: both; */
+        /* animation-fill-mode: none; */
+        /* animation-play-state: paused; */
+
+        &:hover{
+            /* animation-play-state: paused; */
+            /* animation-play-state: running; */
+        }
+      }
+      @keyframes example {
+        0%{
+            width:100px;
+            background-color: chartreuse;
+           
+        }
+        25%{
+            width:200px;
+            background-color: salmon;
+            
+        }
+        50%{
+            width:300px;
+            background-color: blue;
+        }
+        75%{
+            width:400px;
+            background-color: green;
+        }
+        100%{
+            width:500px;
+            background-color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Shahid</div>
+    <div class="box2"></div>
+  </body>
+</html>

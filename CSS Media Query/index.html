@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Query-screen</title>
+    <style>
+        body{
+            background-color: rebeccapurple;
+        }
+        h1{
+            font-size: 1.5rem;
+            color:white;
+
+        }
+
+        /*Screen Size 480px থেকে 767px পর্যন্ত (for iPads, Tablets)*/
+        @media screen and (min-width:480px) {
+            body{
+                background-color: cadetblue;
+            }
+            h1{
+            font-size: 2rem;
+            color:white;
+
+          }
+        }
+
+        /*Screen Size 768px থেকে 1023px পর্যন্ত (for Small-screens, laptops)*/
+        @media screen and (min-width:768px) {
+            body{
+                background-color: darkgoldenrod;
+            }
+            h1{
+            font-size: 2.5rem;
+            color:white;
+
+          }
+        }
+
+        /*Screen Size 1024px থেকে 1199px পর্যন্ত (for Desktops, large-screens)*/
+        @media screen and (min-width:1020px) {
+            body{
+                background-color: hotpink;
+            }
+            h1{
+            font-size: 3rem;
+            color:white;
+
+          }
+        }
+
+        /*Screen Size 1200px থেকে UP পর্যন্ত (for Extra large-screens, TV)*/
+        @media screen and (min-width:1020px) {
+            body{
+                background-color: hotpink;
+            }
+            h1{
+            font-size: 3rem;
+            color:white;
+
+          }
+        }
+    </style>
+</head>
+<body>
+     <h1>Hello World</h1>
+</body>
+</html>

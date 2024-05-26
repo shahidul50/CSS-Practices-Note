@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjacent Sibling Selector</title>
+    <style>
+        .father + h1{
+            color: brown;
+            font-weight: bolder;
+        }
+        .father + p{
+            color: red;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <h1>Heading Son 1</h1>
+        <p>Para Son 2</p>
+        <p>Para Son 3</p>
+        <ul class="list-son-4">
+            <span style="font-size: 9px;">UL Son</span>
+            <li>Grand Son of 4 List Number 1</li>
+            <li>Grand Son of 4 List Number 2</li>
+            <li>Grand Son of 4 List Number 3</li>
+        </ul>
+        <div class="div-son-5">
+            <span style="font-size: 9px;">div Son</span>
+            <h1>Grand Son of 5 heading Number 1</h1>
+            <p>Grand Son of 5 para Number 2</p>
+            <p>Grand Son of 5 para Number 3</p>
+        </div>
+    </div>
+    <p>Para Brother</p>
+    <h1>Heading Brother 1</h1>
+    <h1>Heading Brother 2</h1>
+ 
+
+    <div>
+        <h1>Outside Title</h1>
+        <p>Outside Para</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Style Priperty.</title>
+    <!--* CSS transform-style ব্যবহার করা হয় কোন Element এর Child, 3D অবস্থানে কিভাবে প্রদর্শিত হবে সেটা সেট করে দেওয়ার জন্য। এর By default value flat হয়ে থাকে। -->
+    <!--? Syntax transform-style: flat/preserve-3d/initial/inherit/unset -->
+    <style>
+        .container{
+            width:250px;
+            aspect-ratio: 1;
+            background-color: gainsboro;
+            margin:150px auto;
+            perspective: 500px;
+            transform: rotateY(30deg);
+            /* transform-style: flat; */
+            transform-style: preserve-3d;
+            & .child{
+                text-align: center;
+                line-height: 250px;
+                background-color: chocolate;
+                transform: rotateX(60deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="child">
+            Transform
+        </div>
+    </div>
+</body>
+</html>

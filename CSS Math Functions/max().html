@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Function max()</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #div1 {
+        background-color: yellow;
+        height: 100px;
+        width: max(50%, 300px);
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The max() Function</h1>
+    <div id="div1">Some text...</div>
+     
+    <p>Browser এর Size ছোট বড় করলে আমরা Effect টা দেখতে পাব। এখানে max Function যেভাবে কাজ করবে তা হলঃ এখান থেকে Maximum Value টি বের করবে। ধরি Browser এর Size 800px. এখানে 800px এর 50% হচ্ছে 400px. এখানে max function সবোর্চ্চ Value(400px > 300px) টাকে width হিসেবে নিবে। অর্থাৎ 400px হবে div এর width. এভাবে Browser এর Size ছোট বড় করলে ও Max Function এর ভিতরে সর্বোচ্চ Value কে width হিসেবে গ্রহণ করবে। তবে div এর width 300px এর নিচে হবে না।  </p>
+  </body>
+</html>

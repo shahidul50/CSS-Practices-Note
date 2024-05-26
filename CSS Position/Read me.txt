@@ -1,0 +1,16 @@
+CSS Position Value: 
+1. static
+2. fixed
+3. relative
+4. absolute
+5. sticky
+
+zei property Gulo Position e babohar kora hoi segolo holo:
+1. top
+2. right,
+3. botom,
+4. left,
+
+kono div ke amra browser window er moddhe sorate caile position relative kore ai kajta korthe pari.
+
+ar kono div er modhe onno kono div ke sorathe caile parrent div ke relative kore child div ke absolute kore dite hobe.

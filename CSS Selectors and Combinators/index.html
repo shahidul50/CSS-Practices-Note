@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Combinators</title>
+    <style>
+    /* decendent Selector: atar madhome moluto parent er child er modhe mil ache airokom sob element k select kore */
+      div  p{
+          background-color: aqua;
+      }
+
+      /* child Selector: atar madhome amra parent er modhe parent er childgulo ke select korte pari.  */
+      div > p {
+        background-color: green;
+      }
+
+      /* ajacent Sibling Selector: ater madhome amra kono parent er baire jodi mil ache airokom kono child select korte parbo */
+       div + p{
+        background-color: orangered;
+       }
+
+       /* genarel sibling seletor: aiter madhome parent er barer sokol chile k select kora jai. */
+         div ~ p{
+            background-color: blueviolet;
+         }
+
+         .my-class p{
+            background-color: red;
+         }
+    </style>
+</head>
+<body>
+      <div>
+          <p>This is Paragraph One</p>
+          <p>This is Paragraph Two</p>
+          <p>This is Paragraph Three</p>
+          <h2>Hello I am H2</h2>
+          <section>
+            <p>Div innner div Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quis facere, eius id exercitationem   autem itaque excepturi officia voluptatum aliquam!</p>
+            <p> Div innner div Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quis facere, eius id exercitationem   autem itaque excepturi officia voluptatum aliquam!</p>
+            <h2>Hello I am inner H2</h2>
+          </section>
+      </div>
+
+      <p>Outside Div One</p>
+      <h2>Hello I am outer H2</h2>
+      <p>Outside Div Two</p>
+
+        <div class="my-class">
+            <p>This is Paragraph One</p>
+            <p>This is Paragraph Two</p>
+            <p>This is Paragraph Three</p>
+            <h2>Hello I am H2</h2>
+            <section>
+              <p>Div innner div Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quis facere, eius id exercitationem   autem itaque excepturi officia voluptatum aliquam!</p>
+              <p> Div innner div Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quis facere, eius id exercitationem   autem itaque excepturi officia voluptatum aliquam!</p>
+              <h2>Hello I am inner H2</h2>
+            </section>
+        </div>
+</body>
+</html>

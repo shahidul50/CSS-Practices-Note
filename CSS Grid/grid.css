@@ -1,0 +1,533 @@
+/** CSS Grid: CSS Grid এর মাধ্যমে আমরা খুব সহজে Website Layout তৈরি করতে পারি। Grid এর ক্ষেত্রে আমরা horizontally এবং Vertically দুইদিকেই কাজ করতে পারি। CSS Grid ব্যবহার করতে হলে আমাদের অব্যশই একটা container Class থাকতে হবে এবং grid Item গুলো এর ভিতরে থাকবে। এখানে Container Parent  হিসেবে কাজ করবে, আর Item গুলো Child হিসেবে কাজ করবে। কোন Container কে Grid এ রুপান্তর করতে চাইলে Display:grid ব্যবহার করতে হবে। */
+/** CSS Grid এ অনেকগুলো Properties রয়েছে। তার মধ্যে কিছু Parent Properties আর কিছু Child Properties রয়েছে। */
+/*? Parent Properties গুলো হলঃ */
+/*
+  grid-templete-columns
+  grid-templete-rows
+  grid-templete-areas
+  grid-templete
+
+  grid-auto-columns
+  grid-auto-rows
+  grid-auto-flow
+
+  justify-content
+  justify-items
+
+  align-content
+  align-items
+
+  row-gap
+  column-gap
+  gap */
+
+/*? Child Properties গুলো হলঃ */
+/*
+  grid-row-start
+  grid-row-end
+  grid-row
+  grid-column-start
+  grid-column-end
+  grid-column
+
+  justify-self
+  align-self
+
+  grid-area
+  order */
+
+  /** grid-templete-columns: value(length(px,in,ft etc.)|auto|percentage(%)|fraction-Unit(fr)|min-content|max-content) function(repeat(), minmax(),fit-content())
+     *?-length Value Example:
+        ** grid-templete-columns: 100px 100px; 
+     *?-auto value Example:
+        ** grid-templete-columns: auto auto;     এখানে auto value দুইবার ব্যবহার করায় দুইটি Columns তৈরি হবে। যাদের width automatic নিবে। অর্থাৎ Container এর টোটাল Width ২ ভাগে বিভক্ত হবে। 
+     *?-percentage value Example:
+        ** grid-templete-columns: 40% 60%;   
+     *?-fraction-Unit(fr) value Example:
+        ** grid-templete-cloumns: 1fr 2fr;   এখানে Width আনুপাতিক হারে বিভক্ত হবে। 
+     *?-min-content value Example: 
+        ** grid-templete-columns: min-content min-content;   এখানে Column এর width হবে Content এর minimum length এর উপর ভিত্তি করে। 
+     *?-max-content value Example: 
+        ** grid-templete-columns: max-content max-content;   এখানে Column এর width হবে Content এর maximum length এর উপর ভিত্তি করে। Length যত বাড়বে Column এর Width তত বাড়তে থাকবে।
+     *?-minmax(min,max) function Example:
+        ** grid-templete-columns: minmax(150px,1fr) minmax(150px,1fr)   minmax() function হচ্ছে min-conent এবং max-content এর Shorthen Property. এটার মাধ্যমে আমরা Grid Column এর Minmum এবং Maximum Width নির্দিষ্ট করে দিতে পারি। 
+     *?-repeat(repeat-count value|auto-fill|auto-fit, track value) function Example: 
+        ** grid-templete-columns: repeat(2, 1fr)     repeat function ব্যবহার করে আমরা Repetative কাজগুলো একবারে লিখে ফেলতে পারি। অর্থাৎ আমরা যদি 1fr করে ৪টি Column নিতে চায়, তাহলে আমরা 1fr ৪ বার না লিখে repeat() function ব্যবহার করে ১ বারে লিখে ফেলতে পারব। repeat() function এ প্রথম value হিসেবে আমরা কয়বার Repeat হবে সেটা বলে দিতে পারি এবং ২য় Value হিসেবে Column এর Width কত হবে সেটা বলে দিতে পারি। Repeat function এর মধ্যে আমরা যদি automatic ভাবে Column width অনুসারে Column Count করতে চাই থাহলে auto-fill এবং auto-fit Value ব্যবহার করতে পারি। 
+     *?-auto-fill and auto-fit value Example:
+        ** grid-templete-columns: repeat(auto-fill, 100px);   
+        ** grid-templete-columns: repeat(auto-fit, 100px); 
+        ** auto-fill/fit value যেই কাজটি করে থাকে তা হল, আমরা যদি Container এর Width 600px দিয়ে থাকি এবং Grid Column width 100px দিয়ে থাকি, সেই ক্ষেত্রে auto-fill/fit value পুরো Container এর width কে automatically column width দিয়ে ভাগ করে Column Count(600px/100px = 6) বের করবে। তবে Container এর width কমতে থাকলে বা বাড়তে থাকলে calculation Automatic ভাবে হয়ে Column Count কমতে বা বাড়তে থাকবে। এটার মাধ্যমে আমরা Media-Query না লিখেও Grid কে Responsive করতে পারি খুব Easily. auto-fill value এর ক্ষেত্রে যেটা হয়ে থাকে Grid Item যদি কম থাকে সেই ক্ষেত্রে Container এর মধ্যে Column Size অনুসারে কিছু blank Block তৈরি হয়ে থাকে যা auto-fit value এর ক্ষেত্রে তৈরি হয় না। অর্থাৎ auto-fit এর ক্ষেত্রে যতটুকু Item থাকবে ততটুকুই Column Width হবে। 
+      *?-fit-content(length|percentage) function Example:
+        ** grid-templete-columns: fit-content(150px) fit-content(300px) 1fr      fit-content function যেই কাজটা করে সেটা হল, minimum column width থাকবে Content অনুসারে কিন্তু Maximum Width হবে fit-content Value এর উপর ভিত্তি করে। 
+  */
+  /** grid-templete-rows: value(length(px,in,ft)|auto|percentage(%)|fraction-Unit(fr)|min-content|max-content)| function(repeat(), minmax(),fit-content())  */
+  /** grid-templete: grid-templete-rows value / grid-templete-columns value 
+      grid-templete এর মাধ্যমে আমরা grid-templete-rows এবং grid-templete-columns কে Shorthen Property হিসেবে একসাথে লিখতে পারব।
+  */
+  /** grid-templete-area: String value 
+      Example: 'h h h'
+               'm c c'
+               'f f f'
+      ** এই Property ব্যবহার করার ক্ষেত্রে আমাদেরকে অব্যশই Grid Item Property তে grid-area property ব্যবহার করতে হবে। grid-area Property এর মাধ্যমে আমরা Item গুলোর একটা নাম দিয়ে দিব এবং সেই নাম অনুসারে আমরা grid-templete-area টা তৈরি করব। 
+  */
+
+  /** grid-auto-columns: value(length(px,in,ft)|auto|percentage(%)|fraction-Unit(fr)|min-content|max-content)/ function(repeat(), minmax(),fit-content())
+      **Explicit Grid : প্রাথমিক অবস্থায়, যেই Rows বা Columns গুলো তে Style Define করা থাকে। 
+      **Implicit Grid : প্রাথমিক অবস্থায়, যেই Rows বা Columns গুলো তে Style Define করা থাকে না। 
+      **grid-auto-columns ব্যবহার করা হয় Implicit Grid columns value দেওয়ার জন্য।    
+   */
+  /** grid-auto-rows: value(length(px,in,ft)/auto/percentage(%)/fraction-Unit(fr)/min-content/max-content/auto-fill/auto-fit)/ function(repeat(), minmax(),fit-content())  
+      ** grid-auto-rows ব্যবহার করা হয় Implicit Grid rows value দেওয়ার জন্য।  
+  */
+
+  /** grid-auto-flow: row/column/dense 
+     by default এটার Value row থাকে। 
+     Example: 
+     grid-auto-flow: row/column/dense
+     grid-auto-flow: row dense/column dense
+    এটা ব্যবহার করা হয় মুলত grid items গুলোর auto flow কোন দিকে প্রবাহিত হবে ও কিভাবে প্রবাহিত হবে সেটা বলে দেওয়ার জন্য। 
+  */
+
+  /*? grid Alignment Properties */
+  /* CSS Grid Tracks Alignment : এইক্ষেত্রে Grid এর সকল Items container এর মধ্যে Placement করা যাবে।  */
+      /** justify-content: start/center/end/space-between/space-evenly/space-around */
+      /** align-content: start/center/end/space-between/space-evenly/space-around */
+  /* CSS Grid Items Alignment: এইক্ষেত্রে Grid এর সকল Items তার নিজস্ব Position এ Placement করা যাবে। */
+     /** justify-items: start/center/end  */
+     /** align-items: start/center/end/unsafe/safe/unset */
+  /* CSS Grid Self Item Alignment: এইক্ষেত্রে Grid এর Item, container এর মধ্যে Placement করা যাবে।  */
+     /** justify-self: start/self-start/end/self-end/center/stretch */
+     /** align-self: start/self-start/end/self-end/center/stretch */
+
+   /*? grid Gap Properties */
+     /** row-gap: length/percentage */
+    /** column-gap: length/percentage  */
+    /** gap: row-gap-value column-gap-value  
+       Example: 
+       gap: 20px;       here row and column gap is 20px.
+       gap: 20px 30px;  here row gap is 20px and column gap is 30px.
+       এখানে gap Property হচ্ছে row-gap এবং column-gap এর Shorthen Property.
+    */
+
+  /*?grid Position Properties */
+      /** grid-row-start: auto|<custom-ident>|integer|span */
+      /** grid-row-end: auto|<custom-ident>|integer|span  */
+      /** grid-row: row-start-value/ row-end-value
+          Example:
+           grid-row: 1/3 or
+           grid-row: 1/ -1 or 
+           grid-row: 1/ span 2
+        এছাড়া আমরা Grid Line Number না লিখে চাইলে Line গুলোকে Naming করতে পারি। এটাই মুলত <custom-ident> Value.
+        Example:
+        container=>
+            grid-templete-columns: [col1-start] 100px [col1-end col2-start] 200px [col2-end]
+            grid-templete-rows: [row1-start] 100px [row1-end row2-start] 100px [row2-end]
+        child => 
+          grid-row: row1-start/ row2-end; or
+          grid-row: row1-start/ span 2;
+      এছাড়া আমরা যদি row-start বা column Start কোথায় থেকে শুরু হবে সেটা না জানলে আমরা চাইলে auto Value ব্যবহার করতে পারি। অথবা না দিলেও এটা By Default auto value ধরে নিবে। 
+      */
+      /** grid-column-start: auto|<custom-ident>|integer|span*/
+      /** grid-column-end: auto|<custom-ident>|integer|span  */
+      /** grid-row: column-start-value/ column-end-value */
+
+      /** grid-area: grid-row-start/grid-column-start/grid-row-end/grid-column-end 
+          এছাড়া আমরা চাইলে এই Property এর মাধ্যমে Item area এর একটা Name দিতে পারি। যেটার মাধ্যামে আমরা grid-templete-area টা তৈরি করতে পারব।
+      */
+
+      /** order: integer  
+         এই Property এর মাধ্যমে আমরা CSS Flexbox এর মত Grid Item গুলোকে Positioning করতে পারি। যার Order Value বেশি হবে সেটি সবার শেষে চলে যাবে। By default এর Value 0 থাকে। 
+      */
+
+
+  
+
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.grid-container{
+  width:80%;
+  background-color: wheat;
+  margin:100px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  /* display: inline-grid; */
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: repeat(2,100px);
+    /* column-gap: 20px;
+    row-gap: 10px; */
+    /* Syntax: gap: row column */
+    /* gap:10px 20px; */
+  gap:20px;
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large
+    
+    }
+  & .item-1{
+      background-color: coral;
+  }
+  & .item-2{
+      background-color: darkolivegreen;
+  }
+  & .item-3{
+    background-color: darkgoldenrod;
+  }
+  & .item-4{
+    background-color: darkcyan;
+  }
+  & .item-5{
+    background-color: goldenrod;
+  }
+  & .item-6{
+    background-color: limegreen;
+  }
+}
+
+/** Inplicit and Explicit Grid
+  *? Explicit Grid : প্রাথমিক অবস্থায়, যেই Rows বা Columns গুলো তে Style Define করা থাকে। 
+  *? Implicit Grid : প্রাথমিক অবস্থায়, যেই Rows বা Columns গুলো তে Style প্রাথমিক অবস্থায় Define করা থাকে না।
+*/
+.grid-container1{
+  width:80%;
+  background-color: wheat;
+  margin:100px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,120px);
+  gap:20px;
+  grid-auto-flow: row;
+  /* grid-auto-columns: .5f; */
+  grid-auto-rows: 100px;
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large
+    }
+  & .itemOne-1{
+      background-color: coral;
+  }
+  & .itemOne-2{
+      background-color: darkolivegreen;
+  }
+  & .itemOne-3{
+    background-color: darkgoldenrod;
+  }
+  & .itemOne-4{
+    background-color: darkcyan;
+  }
+  & .itemOne-5{
+    background-color: goldenrod;
+  }
+  & .itemOne-6{
+    background-color: limegreen;
+  }
+  & .itemOne-7{
+    background-color: indianred;
+  }
+  & .itemOne-8{
+    background-color: slateblue;
+  }
+}
+
+/*? minmax() Function, min-content,max-content Value */
+.grid-container2{
+  width:80%;
+  background-color: wheat;
+  margin:100px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  grid-template-columns: repeat(4,minmax(100px,1fr));
+  /* grid-template-rows: repeat(2,minmax(150px,max-content)); */
+  grid-template-rows: repeat(2,minmax(150px,min-content));
+  gap:20px;
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large
+    }
+  & .itemOne-1{
+      background-color: coral;
+  }
+  & .itemOne-2{
+      background-color: darkolivegreen;
+  }
+  & .itemOne-3{
+    background-color: darkgoldenrod;
+  }
+  & .itemOne-4{
+    background-color: darkcyan;
+  }
+  & .itemOne-5{
+    background-color: goldenrod;
+  }
+  & .itemOne-6{
+    background-color: limegreen;
+  }
+  & .itemOne-7{
+    background-color: indianred;
+  }
+  & .itemOne-8{
+    background-color: slateblue;
+  }
+}
+
+ /*? CSS Grid Tracks Alignment : এইক্ষেত্রে Grid এর সকল Items container এর মধ্যে Placement করা যাবে।  */
+.grid-container3{
+  width:80%;
+  height:600px;
+  background-color: wheat;
+  margin:30px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  grid-template-columns: repeat(2,150px);
+  grid-template-rows: repeat(2,100px);
+  grid-auto-rows: 80px;
+  gap:15px;
+  /*? Grid Tracks Alignment */
+    /**horizontal alignment property */
+      /* justify-content: start; */
+      justify-content: center;
+      /* justify-content: end; */
+      /* justify-content: space-around; */
+      /* justify-content: space-between; */
+      /* justify-content: space-evenly; */
+    /**Verticaly alignment property */
+      /* align-content: start; */
+      align-content: center;
+      /* align-content: end; */
+      /* align-content: space-around; */
+      /* align-content: space-between; */
+      /* align-content: space-evenly; */
+
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large
+    }
+  & .item-1{
+      background-color: coral;
+  }
+  & .item-2{
+      background-color: darkolivegreen;
+      /* justify-self: start; */
+      /* justify-self: center; */
+      /* justify-self: end; */
+      /* justify-self: stretch; */
+
+      /* align-self: self-start; */
+      /* align-self: self-end; */
+      /* align-self: center; */
+      /* align-self: stretch; */
+  }
+  & .item-3{
+    background-color: darkgoldenrod;
+    /* grid-row: 2/5; */
+  }
+  & .item-4{
+    background-color: darkcyan;
+  }
+  & .item-5{
+    background-color: goldenrod;
+  }
+  & .item-6{
+    background-color: limegreen;
+  }
+  & .item-7{
+    background-color: indianred;
+    /* grid-column: 1/-1; */
+  }
+  & .item-8{
+    background-color: slateblue;
+  }
+}
+
+ /*? CSS Grid Items Alignment: এইক্ষেত্রে Grid এর সকল Items তার নিজস্ব Position এ Placement করা যাবে। */
+.grid-container4{
+  width:80%;
+  /* height:600px; */
+  background-color: wheat;
+  margin:30px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  grid-template-columns: repeat(2,200px);
+  grid-template-rows: repeat(2,minmax(100px,min-content));
+  grid-auto-rows: 80px;
+  /* grid-auto-rows: minmax(80px,min-content); */
+  gap:15px;
+  /*? Grid Items Alignment */
+    /**horizontal alignment property */
+      /* justify-items: start; */
+      /* justify-items: center; */
+      /* justify-items: end; */
+
+    /**Verticaly alignment property */
+      /* align-items: start; */
+      /* align-items: center; */
+      /* align-items: end; */
+      /* align-items: safe center; */
+      /* align-items: unset start; */
+
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large
+    }
+  & .item-1{
+      background-color: coral;
+  }
+  & .item-2{
+      background-color: darkolivegreen;
+  }
+  & .item-3{
+    background-color: darkgoldenrod;
+    /* grid-row: 2/5; */
+  }
+  & .item-4{
+    background-color: darkcyan;
+  }
+  & .item-5{
+    background-color: goldenrod;
+  }
+  & .item-6{
+    background-color: limegreen;
+  }
+  & .item-7{
+    background-color: indianred;
+    /* grid-column: 1/-1; */
+  }
+  & .item-8{
+    background-color: slateblue;
+  }
+}
+
+/* Auto-fill and Auto-fit */
+.grid-container5{
+  width:80%;
+  background-color: wheat;
+  margin:30px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit,200px); */
+  /* grid-template-columns: repeat(auto-fill,minmax(100px,1fr)); */
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  grid-template-rows: repeat(2,100px);
+  grid-auto-rows: 100px;
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large;
+    }
+  & .item-1{
+      background-color: coral;
+  }
+  & .item-2{
+      background-color: darkolivegreen;
+  }
+  & .item-3{
+    background-color: darkgoldenrod;
+    /* grid-row: 2/5; */
+  }
+  & .item-4{
+    background-color: darkcyan;
+  }
+
+}
+
+/** fit-content */
+.grid-container6{
+  width:80%;
+  background-color: wheat;
+  margin:30px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  grid-template-columns: fit-content(200px) fit-content(300px) 1fr;
+  grid-template-rows: repeat(2,minmax(100px, min-content));
+  grid-auto-rows: 100px;
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large;
+    }
+  & .item-1{
+      background-color: coral;
+  }
+  & .item-2{
+      background-color: darkolivegreen;
+  }
+  & .item-3{
+    background-color: darkgoldenrod;
+    /* grid-row: 2/5; */
+  }
+  & .item-4{
+    background-color: darkcyan;
+  }
+
+}
+
+/** dense Value: যদি Grid Layout এ সিরিয়ালি Item বসার সময়, কোন Item বড় হয়ে থাকে এবং সেটি যদি Column এ জায়গা না পেয়ে থাকে থাহলে সেটি নিচে যেখানে জায়গা পাবে সেখানে বসবে। কিন্তু ওই Item যেই জায়গা ছেড়ে এসেছে সেটি খালি থেকে যাবে। এভাবে হতে থাকলে একটা বাজে layout তৈরি হবে। এ সমস্যাটা সমাধান করেতে আমরা Dense Value ব্যবহার করতে পারি। এটি মুলত Dense Algorithm Flow করে কাজ করে। অর্থাৎ সিরিয়ালি বসার সময় কোন জায়গা যদি খালি থাকে সেটি পরের যেই Item ওই যায়গায় বসতে পারবে তাকে এনে বসিয়ে দেয়। এতে করে Layout ঠিক থাকে।  */
+/*? Syntax: grid-auto-flow: dense; */
+.grid-container7{
+  width:80%;
+  background-color: wheat;
+  margin:30px auto;
+  box-shadow: 1px 2px 10px #0f0f0f;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  grid-template-rows: repeat(2,minmax(100px, min-content));
+  gap:3px;
+  grid-auto-rows: 100px;
+  grid-auto-flow: dense;
+  & .item{
+      background-color:lightcoral;
+      color:white;
+      padding:10px;
+      font-size:x-large;
+    }
+  & .item-1{
+      background-color: coral;
+      
+  }
+  & .item-2{
+      background-color: darkolivegreen;
+      grid-column: span 2;
+  }
+  & .item-3{
+    background-color: darkgoldenrod;
+    grid-row: span 2;
+  }
+  & .item-4{
+    background-color: darkcyan;
+  }
+  & .item-5{
+    background-color: goldenrod;
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  & .item-6{
+    background-color: limegreen;
+  }
+  & .item-7{
+    background-color: indianred;
+    /* grid-column: 1/-1; */
+  }
+  & .item-8{
+    background-color: slateblue;
+  }
+
+}
+
+

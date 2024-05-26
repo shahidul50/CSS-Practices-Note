@@ -1,0 +1,36 @@
+
+  div {
+    height: 300px;
+    width: 400px;
+    background-image: linear-gradient(to top right, yellow, blue);
+    margin: 200px auto;
+    /* transition: all 2s linear; */
+  }
+  div:hover {
+    /**  X and Y axis Change Property(prositive and Negetive Value Allow)  */
+        /* transform: translateX(15px);*/
+        /* transform: translateY(60px);  */
+        /* transform: translate(-5px, -60px);  */
+        /* translate: 15px 60px; */
+    /** rotation change property(prositive and negative dergree allow) */
+        /* transform: rotate(360deg); */
+        /* rotate: -180deg;  */
+    /** width and Hieght Property change width multiplication(prositive and Negetive Value Allow) */
+    /* transform: scaleX(1.5);     */
+    /* transform: scaleY(1.2); */
+    /* transform: scale(-0.5); */
+    /* scale: 2; */
+     /** X and Y axis skew change Property(prositive and negative dergree allow) */
+    /* transform: skewX(10deg); */
+    /* transform: skewY(20deg) */
+    /* transform: skew(20deg, 30deg); */
+      
+    /*? Syntax: transform: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()); */
+    /* transform: matrix(1, -0.3, 0, 1, 0, 0); */
+
+    transform: rotate(45deg);
+    
+    /* transform-origin: 20% 50%; */
+
+
+  }

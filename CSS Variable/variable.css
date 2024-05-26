@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+ /*? Global Variable Declaretion */
+:root{
+    --praimary-color: #164863;
+    --secendary-color: #427D9D;
+    --text-color: #f1f1f1;
+    --main-head-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    
+    width:100%;
+    margin: 0 auto;
+}
+
+.header{
+    width:100%;
+    min-height:60px;
+    background-color: var(--praimary-color);  /* Use CSS Variables */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    & a{
+        text-decoration: none;
+        color: var(--text-color); /* Use CSS Variables */
+        font-size: 1.5rem;
+        margin: 20px 0;
+        align-self: flex-start;
+    }
+
+    & nav{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+        gap: 20px;
+        font-size: 1.2rem;
+        color:var(--text-color)
+    }
+}
+
+.hero{
+    /* local Variable */
+    /* --para-color: #f1f1f1; */
+    --para-color: yellow;
+    min-height:400px;
+    width:100%;
+    background-color: var(--secendary-color);  /* Use CSS Variables */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & .partOne{
+        width:100%;
+        height:100%;
+        padding:8px;
+        order: 1;
+        & h2{
+            font-family: var(--main-head-family);
+            font-size: 2rem;
+            padding-bottom: 10px;
+        }
+        & p{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: justify;
+            color: var(--para-color); /* Use local CSS Variables */
+            
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+
+    & .partTwo{
+          height:100%;
+          width:100%;
+          
+          & img{
+            width:100%;
+            padding: 10px 10px;
+          }
+    }
+}
+
+.about{
+    min-height:150px;
+    margin: 20px 0px;
+
+    & h2{
+        text-align: center;
+        font-family: var(--main-head-family);
+        padding-bottom: 10px;
+    }
+    & p{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 1.6rem;
+        /** এই Color Value টি পাবে না কারণ এটি hero Section এর Local Variable, যা ওই Section এর বাইরের Property তে ব্যবহার করা যাবে না বা ব্যবহার করলে এটি কাজ করবে না। */
+        color: var(--para-color); /* Use loacl CSS Variables */
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .container{
+        width:80%;
+        margin: 0 auto;
+    }
+    :root{
+        --praimary-color: #A2C579;
+        --secendary-color: #D2DE32;
+        --text-color: #0d0d0d;
+    }
+    .header{
+        flex-direction: row;
+        & a{
+            margin-bottom: 0px;
+        }
+        & nav{
+            flex-direction: row;
+        }
+    }
+    .hero{
+        /* --para-color: #0e0e0e; */
+        --para-color: brown;
+        flex-direction: row;
+        & .partOne{
+            order: 0;
+        }
+    }
+}
+
+footer{
+    background-color: var(--praimary-color);
+    padding:10px;
+    color: var(--text-color);
+    text-align: center;
+}

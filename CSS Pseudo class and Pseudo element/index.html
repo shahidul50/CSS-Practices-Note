@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo class</title>
+    <style>
+        li:hover{
+            background-color: blueviolet;
+        }
+        li:active{
+            color:red;
+        }
+        ul li:nth-child(odd){
+            color:crimson;
+            font-weight: 900;
+        }
+        ul li:nth-child(even){
+            color:darkcyan;
+            font-weight: 900;
+        }
+        h2::marker{
+            content: "";
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Gallery</li>
+        <li>Gallery</li>
+        <li>Gallery</li>
+    </ul>
+
+
+    <h2> Shahidul Islam</h2>
+</body>
+</html>

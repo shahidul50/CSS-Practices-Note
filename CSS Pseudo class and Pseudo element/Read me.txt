@@ -1,0 +1,46 @@
+CSS Pseudo Class Selector:
+============================
+for link Element
+-----------------
+1. active  => a:active
+2. hover  => a:hover
+3. link  => a:link
+4. visited   => a:visited
+
+for p and others Element
+-------------------------
+1. empty   => p:empty
+2. first-child  => p:first-child
+3. last-child    => p:last-child
+4. first-of-type  => p:first-of-type
+5. last-of-type  => p:last-of-type
+6. nth-child(n)   => p:nth-child(n)
+7. nth-last-child(n)   => p:nth-last-child(n)
+8. nth-of-type(n)   => p:nth-of-type(n)
+9. nth-last-of-type(n)   => p:nth-last-of-type(n)
+10. lang(language)    => p:lang(en)
+11. only-of-type	=> p:only-of-type
+12. only-child	=> p:only-child
+13. not(selector)  => :not(p)
+
+for input group element
+-----------------------
+1. checked  => input:checked
+2. disabled => input:disabled
+3. enabled  => input:enabled
+4. focus     => input:focus
+5. in-range	  => input:in-range
+6. read-only   => input:read-only
+7. required	  => input:required
+8. valid    => input:valid
+
+
+CSS Pseudo Elements Selector:
+=============================
+1. after	      => p::after
+2. before	      => p::before	
+3. first-letter	  => p::first-letter	
+4. first-line	  => p::first-line	
+5. marker	      => ::marker	
+6. selection	  => p::selection
+7: placeholder    => input::placeholder	

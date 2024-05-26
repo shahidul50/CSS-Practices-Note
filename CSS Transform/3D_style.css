@@ -1,0 +1,67 @@
+/*? Note: যখন আমরা 3D Properries গুলো ব্যবহার করব তখন আমাদের অবশ্যই Perspective property টা ব্যবহার করতে হবে। তা না হলে 3D Effect টা ভালোভাবে বুঝা যাবে না। */
+/** 3D Properties:
+    none
+    perspective(length)
+    perspective-origin
+    translateX(x-axis-length)   Value: length/percentage.
+    translateY(y-axis-length)   Value: length/percentage.
+    translateZ(z-axis-length)   Value: length/percentage.
+    translate3d(x-axis-length,y-axis-length,z-axis-length)   Value: length/percentage.
+
+    rotateX(angle)
+    rotateY(angle)
+    rotateZ(angle)
+    rotate3d(x-axis,y-axis,z-axis,angle)
+    
+    scaleX(n)   Value: number
+    scaleY(n)   Value: number
+    scaleZ(n)   Value: number
+    scale3d(n,n,n)  Value: number
+
+    matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) 
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width:250px;
+    aspect-ratio: 1;
+    background-color: gray;
+    margin:100px auto;
+    /* perspective:100px;*/
+    & .child{
+       width: inherit;
+       aspect-ratio: 1;
+       background-color: brown;
+       transition: all 2s linear;
+
+       &:hover{
+        /* transform: perspective(800px) rotateX(30deg) ; */
+        /* transform: perspective(800px) rotateY(30deg) ; */
+        /* transform: perspective(800px) rotateZ(30deg) ; */
+        /** CSS new value 1turn= 360deg */
+        /* transform: perspective(800px) rotate3d(1, 10,1,1turn) ; */
+        /* transform: perspective(800px) rotate3d(1, 0,1,60deg) ; */
+        /* transform: translateX(100px); */
+        /* transform: translateX(40%); */
+        /* transform: translateY(100px); */
+        /* transform: perspective(500px) translateZ(100px); */
+        /*?Syntax translate3d: (x-axis,y-axis,z-axis); */
+        /* transform: perspective(500px) translate3d(100px,50px,100px); */
+         /* transform: scaleX(1.2); */
+         /* transform: scaleY(1.2); */
+         /* transform: perspective(500px) scaleZ(3) translateZ(50px); */
+         /* transform: perspective(500px) scale3d(1.5,1.5,1) translateZ(50px); */
+        /*? Syntax: matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4) */
+         transform: matrix3d(
+                -0.6,       1.34788, 0,        0,
+                -2.34788,  0.6,     0,        0,
+                 0,         0,       1,        0,
+                 0,         0,      10,        1);
+        }
+    }
+}

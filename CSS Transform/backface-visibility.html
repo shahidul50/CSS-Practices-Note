@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backface Visibility Property</title>
+    <!--* CSS backface-visibility property ব্যবহার করা হয় কোন Element এর Back অংশ visible হবে কি হবে না তা নির্দিষ্ট করার জন্য। By Default Value Visible হয়ে থাকে। -->
+    <!--? Syntax: backface-visibility: visible/hidden -->
+    <style>
+        .card{
+            height: 200px;
+            aspect-ratio: 1;
+            margin: 150px auto;
+            border-radius: 10px;
+            /* position: relative; */
+            perspective: 500px;
+            & .content{
+                width:100%;
+                aspect-ratio: 1;
+                transition: transform 1s;
+                transform-style: preserve-3d;
+                & .box{
+                    width:100%;
+                    aspect-ratio: 1;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                }
+                & .front{
+                    background-color: tomato;
+                    color:white;
+                    backface-visibility: hidden;
+                }
+                & .back{
+                background-color: goldenrod;
+                color:white;
+                transform: rotateY(180deg);
+                backface-visibility: hidden;
+            }
+            }
+           &:hover .content{
+            transform: rotateY(180deg);
+           }
+
+        }
+    </style>
+</head>
+<body>
+     <div class="card">
+        <div class="content">
+            <div class="box front">Fornt</div>
+            <div class="box back">Back</div>
+        </div>
+     </div>
+</body>
+</html>
